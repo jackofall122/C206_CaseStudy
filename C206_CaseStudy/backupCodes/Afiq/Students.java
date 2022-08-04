@@ -20,7 +20,7 @@ public class Students {
 		this.interest = interest;
 	}
 	public String toString() {
-		String studentInfo = String.format("%-10s %-30s %-10s %-10s %-10s %-10s %-10s", name, gender, mobile, email, dob, country, interest);
+		String studentInfo = String.format("%-20s %-10s %-10s %-20s %-20s %-20s %-20s", name, gender, mobile, email, dob, country, interest);
 		return studentInfo;
 	}
 	public String getName() {
