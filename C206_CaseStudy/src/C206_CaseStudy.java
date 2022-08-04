@@ -14,7 +14,7 @@ public class C206_CaseStudy {
 		ArrayList<tuition> tuitionList = new ArrayList<tuition>();
 		tuitionList.add(new tuition(1000, "English", "Language", "English Language E")()
 	}
-	
+	// Set header
 	public static void setHeader(String header) {
 		Helper.line(80, "-");
 		System.out.println(header);
