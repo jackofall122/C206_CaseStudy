@@ -1,11 +1,19 @@
-package Afiq;
+package Ben;
 
 import java.util.ArrayList;
 
-public class C206_CaseStudy.java {
+import Ben.tuition;
+
+public class C206_CaseStudy {
 
 	public static void main(String[] args) {
+	
+		// Afiq
 		ArrayList<Students> studentsList = new ArrayList<Students>();
+		
+		// Ben
+		ArrayList<tuition> tuitionList = new ArrayList<tuition>();
+		tuitionList.add(new tuition(1000, "English", "Language", "English Language E")()
 	}
 	// Register/Add students
 	public static Students inputStudents() {
@@ -50,4 +58,3 @@ public class C206_CaseStudy.java {
 		}
 	}
 	
-}

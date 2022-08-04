@@ -2,12 +2,19 @@
 
 public class tuition {
 
-	private String tuitionCode;
-	public String getTuitionCode() {
+	private String tuitionTitle;
+	private String subGrpName;
+	private String tuitionDescription;
+	private int tuitionDuration;
+	private String tuitionPreReq;
+	private String teacherInfo;
+	private int tuitionCode;
+	
+	public int getTuitionCode() {
 		return tuitionCode;
 	}
 
-	public void setTuitionCode(String tuitionCode) {
+	public void setTuitionCode(int tuitionCode) {
 		this.tuitionCode = tuitionCode;
 	}
 
@@ -59,14 +66,9 @@ public class tuition {
 		this.teacherInfo = teacherInfo;
 	}
 
-	private String tuitionTitle;
-	private String subGrpName;
-	private String tuitionDescription;
-	private int tuitionDuration;
-	private String tuitionPreReq;
-	private String teacherInfo;
+
 	
-	public tuition(String tuitionCode, String tuitionTitle, String subGrpName, String tuitionDescription,
+	public tuition(int tuitionCode, String tuitionTitle, String subGrpName, String tuitionDescription,
 			int tuitionDuration, String tuitionPreReq, String teacherInfo) {
 		super();
 		this.tuitionCode = tuitionCode;
@@ -77,14 +79,12 @@ public class tuition {
 		this.tuitionPreReq = tuitionPreReq;
 		this.teacherInfo = teacherInfo;
 	}
-	public void viewTuition() {
-		System.out.println("Tuition Code: "+tuitionCode);
-		System.out.println("Tuition Title: "+tuitionTitle);
-		System.out.println("Subject Group Name: "+subGrpName);
-		System.out.println("Tuition Description: "+tuitionDescription);
-		System.out.println("Tuition Duration: "+tuitionDuration+" minutes");
-		System.out.println("Pre-requisite: "+tuitionPreReq);
-		System.out.println("Teacher Info: "+teacherInfo);
+
+	public String toString() {
+		String tuitionInfo = String.format("%-10d %-30s %-20s %-50s %-5s minutes %-20s $-30s"
+				,tuitionCode, tuitionTitle, subGrpName,tuitionDescription, tuitionDuration, 
+				tuitionPreReq, teacherInfo);
+		return tuitionInfo;
 	}
 	
 }
