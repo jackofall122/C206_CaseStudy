@@ -14,6 +14,12 @@ public class C206_CaseStudy {
 		ArrayList<tuition> tuitionList = new ArrayList<tuition>();
 		tuitionList.add(new tuition(1000, "English", "Language", "English Language E")()
 	}
+	
+	public static void setHeader(String header) {
+		Helper.line(80, "-");
+		System.out.println(header);
+		Helper.line(80, "-");
+	}
 	// Register/Add students
 	public static Students inputStudents() {
 		String name = Helper.readString("Enter name:");
@@ -41,7 +47,7 @@ public class C206_CaseStudy {
 		return output;
 	}
 	public static void viewAllStudents(ArrayList<Students> studentsList) {
-		C206_CaseStudy.setHeader("STUDENT LIST");
+		C206_CaseStudy.setHeader("STUDENT LIST");	
 		String output = String.format("%-10s %-30s %-10s %-10s %-10s %-10s %-20s\n", "NAME", "GENDER", "MOBILE", "EMAIL", "DATE OF BIRTH", "COUNTRY OF RESIDENCE", "INTEREST");
 		output += retrieveAllStudents(studentsList);
 		System.out.println(output);
@@ -51,9 +57,10 @@ public class C206_CaseStudy {
 	public static void inputDelete(ArrayList<Students> studentsList) {
 		String email = Helper.readString("Enter email: ");
 		for (int i = 0; i < studentsList.size(); i++) {
-		if (studentsList.get(i).getEmail().equals(email) {
+		if (studentsList.get(i).getEmail().equals(email)) {
 		studentsList.remove(i);
 			}
 		}
 	}
+}
 	
