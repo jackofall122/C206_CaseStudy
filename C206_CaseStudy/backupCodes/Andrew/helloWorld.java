@@ -8,7 +8,7 @@ public class helloWorld {
 		ArrayList<registration> rList = new ArrayList<registration>();
 	}
 	// Register/Add students
-	public static registration inputStudents() {
+	public static registration createRegistration() {
 		
 		int id = Helper.readInt("Enter tuition timetable ID:");
 		String email = Helper.readString("Enter email:");
@@ -16,12 +16,12 @@ public class helloWorld {
 		String date = Helper.readString("Enter date:");
 		String time = Helper.readString("Enter time:");
 		int regNum = Helper.readInt("Enter registration Number:");
-
+		//asdasdasd
 		
 		registration r = new registration(id, email, status, date, time, regNum);
 		return r;
 	}
-	public static void addReg(ArrayList<registration> rList, registration r) {
+	public static void addRegistrations(ArrayList<registration> rList, registration r) {
 		rList.add(r);
 	}
 
