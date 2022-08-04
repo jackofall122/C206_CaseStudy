@@ -12,7 +12,12 @@ public class C206_CaseStudy {
 		
 		// Ben
 		ArrayList<tuition> tuitionList = new ArrayList<tuition>();
-		tuitionList.add(new tuition(1000, "English", "Language", "English Language E")()
+		tuitionList.add(new tuition(1000, "English", "Language", "Advanced",120, 
+				"Elementary English", "Mr Lee"));
+		
+		// Andrew
+		
+		// Yang
 	}
 	// Register/Add students
 	public static Students inputStudents() {

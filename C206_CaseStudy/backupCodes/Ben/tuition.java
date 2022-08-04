@@ -2,12 +2,18 @@ package Ben;
 
 public class tuition {
 
-	private String tuitionCode;
-	public String getTuitionCode() {
+	private int tuitionCode;
+	private String tuitionTitle;
+	private String subGrpName;
+	private String tuitionDescription;
+	private int tuitionDuration;
+	private String tuitionPreReq;
+	private String teacherInfo;
+	public int getTuitionCode() {
 		return tuitionCode;
 	}
 
-	public void setTuitionCode(String tuitionCode) {
+	public void setTuitionCode(int tuitionCode) {
 		this.tuitionCode = tuitionCode;
 	}
 
@@ -59,16 +65,11 @@ public class tuition {
 		this.teacherInfo = teacherInfo;
 	}
 
-	private String tuitionTitle;
-	private String subGrpName;
-	private String tuitionDescription;
-	private int tuitionDuration;
-	private String tuitionPreReq;
-	private String teacherInfo;
 	
-	public tuition(String tuitionCode, String tuitionTitle, String subGrpName, String tuitionDescription,
+
+	
+	public tuition(int tuitionCode, String tuitionTitle, String subGrpName, String tuitionDescription,
 			int tuitionDuration, String tuitionPreReq, String teacherInfo) {
-		super();
 		this.tuitionCode = tuitionCode;
 		this.tuitionTitle = tuitionTitle;
 		this.subGrpName = subGrpName;
