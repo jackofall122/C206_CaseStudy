@@ -60,9 +60,30 @@ public class C206_CaseStudy {
 		}
 	}
 	// BEN
-	// 1 -Register/add tuition
+	// 1 - Register/add tuition
 	public static tuition inputTuition() {
-		String 
+	
+		int tuitionCode = Helper.readInt("Enter class code: ");
+		String tuitionTitle = Helper.readString("Enter class title: ");
+		String subGrpName = Helper.readString("Enter the subject group name: ");
+		String tuitionDescription = Helper.readString("Enter the tuition description: ");
+		int tuitionDuration = Helper.readInt("Enter the class duration: ");
+		String tuitionPreReq = Helper.readString("Enter the class pre-requisite: ");
+		String teacherInfo = Helper.readString("Enter the teacher's information");
+		
+		tuition newTuition = new tuition(tuitionCode, tuitionTitle, subGrpName, 
+				tuitionDescription, tuitionDuration, tuitionPreReq, teacherInfo);
+		return newTuition;
 	}
+	public static void addTuition(ArrayList<tuition> tuitionList, tuition newTuition) {
+		tuitionList.add(newTuition);
+	}
+	
+	// 2 - View tuition
+	public static String retrieve(ArrayList<tuition> tuitionList) {
+		
+	}
+		
+}
 	
 	
