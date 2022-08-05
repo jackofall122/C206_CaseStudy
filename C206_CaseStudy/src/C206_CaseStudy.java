@@ -35,16 +35,18 @@ public class C206_CaseStudy {
 				int type = Helper.readInt("Enter an option > ");
 				
 				if (type == 1) {
-					//Add
+					Students st = inputStudents();
+					C206_CaseStudy.addStudent(studentsList, st);
+					System.out.println("Student added");
 				}
 				else if (type == 2) {
-					//View
+					C206_CaseStudy.viewAllStudents(studentsList);
 				}
 				else if (type == 3) {
-					//Delete
+					C206_CaseStudy.inputDelete(studentsList);
 				}
 				else {
-					//
+					System.out.println("Invalid option");
 				}
 			}else if (option == OPTION_REGISTRATIONS) {
 				RegistrationList();
@@ -132,10 +134,11 @@ public class C206_CaseStudy {
 
 	public static void menu() {
 		C206_CaseStudy.setHeader("Tuition Management System");
-		System.out.println("1. Add Student");
-		System.out.println("2. View Student");
-		System.out.println("3. Delete Student");
-		System.out.println("14. Quit");
+		System.out.println("1. STUDENTS");
+		System.out.println("2. REGISTRATION");
+		System.out.println("3. TIMETABLE");
+		System.out.println("4. TUITION");
+		System.out.println("5. Quit");
 		Helper.line(80, "-");
 
 	}	
