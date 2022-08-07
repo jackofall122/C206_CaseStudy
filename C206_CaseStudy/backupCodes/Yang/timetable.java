@@ -18,6 +18,10 @@ public class timetable {
 		this.eTime = eTime;
 		this.mode = mode;
 	}
+	
+	public timetable(int id) {
+		this.id = id;
+	}
 
 	public int getId() {
 		return id;

@@ -18,6 +18,10 @@ public class timetable {
 		this.eTime = eTime;
 		this.mode = mode;
 	}
+	
+	public timetable(int id) {
+		this.id = id;
+	}
 
 	public int getId() {
 		return id;
@@ -48,7 +52,7 @@ public class timetable {
 	}
 	
 	public String toString() {
-		String info = String.format("%-10d %-10f %-10s %-10s %-10s %-10s %-10s", id, price, sDate, sTime, eDate, eTime, mode);
+		String info = String.format("%-10d %-10.2f %-10s %-10s %-10s %-10s %-10s", id, price, sDate, sTime, eDate, eTime, mode);
 		return info;
 	}
 }
