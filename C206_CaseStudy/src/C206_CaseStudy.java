@@ -44,6 +44,7 @@ public class C206_CaseStudy {
 				}
 				else if (type == 3) {
 					C206_CaseStudy.inputDelete(studentsList);
+					System.out.println("Student deleted");
 				}
 				else {
 					System.out.println("Invalid option");
@@ -189,6 +190,10 @@ public class C206_CaseStudy {
 		studentsList.remove(i);
 			}
 		}
+	}
+
+	public static Boolean inputDelete(ArrayList<Students> studentsList, String string) {
+		return null;
 	}
 }
 	
