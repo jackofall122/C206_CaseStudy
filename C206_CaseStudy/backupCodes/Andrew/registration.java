@@ -1,24 +1,29 @@
 package Andrew;
 
-public class registration extends timetable{
+public class registration{
 
 	 
 
+	private int id;
     private String studentEmail;
     private String status;
     private String date;
     private String time;    
     private int regNum;
     
+
     
     
     public registration(int id, String studentEmail, String status, String date, String time, int regNum) {
-    	super(id, price, time, time, time, time, time);
-        this.studentEmail = studentEmail;
-        this.status = status;
-        this.date = date;
-        this.time = time;
-        this.regNum = regNum;
+		this.id = id;
+		this.studentEmail = studentEmail;
+		this.status = status;
+		this.date = date;
+		this.time = time;
+		this.regNum = regNum;
+	}
+    public int getId() {
+    	return id;
     }
     
     public int getRegNum() {
@@ -27,12 +32,7 @@ public class registration extends timetable{
     public void setRegNum(int regNum) {
         this.regNum = regNum;
     }
-    public int getTimetableID() {
-        return timetableID;
-    }
-    public void setTimetableID(int timetableID) {
-        this.timetableID = timetableID;
-    }
+   
     public String getStudentEmail() {
         return studentEmail;
     }
