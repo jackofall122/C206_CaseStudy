@@ -22,7 +22,8 @@ public class C206_CaseStudy {
 				"Elementary English", "Mr Lee"));
 		
 		// Andrew
-		
+		ArrayList<registration> rList = new ArrayList<registration>();
+
 		// Yang
 		int option = 0;
 
@@ -55,15 +56,19 @@ public class C206_CaseStudy {
 				
 				if (type == 1) {
 					//Add
+					C206_CaseStudy.addRegistrations(rList, createRegistration());
 				}
 				else if (type == 2) {
 					//View
+					C206_CaseStudy.viewAllRegistrations(rList);
 				}
 				else if (type == 3) {
 					//Delete
+					C206_CaseStudy.deleteRegistrations(rList);
 				}
 				else {
 					//
+					System.out.println("Invalid option");
 				}
 			}else if (option == OPTION_TIMETABLE) {
 				TimeTableList();
@@ -188,6 +193,56 @@ public class C206_CaseStudy {
 		for (int i = 0; i < studentsList.size(); i++) {
 		if (studentsList.get(i).getEmail().equals(email)) {
 		studentsList.remove(i);
+			}
+		}
+	}
+	
+	
+	
+	
+public static registration createRegistration() {
+		
+		int id = Helper.readInt("Enter tuition timetable ID:");
+		String email = Helper.readString("Enter email:");
+		String status = "Pending";
+		String date = Helper.readString("Enter date:");
+		String time = Helper.readString("Enter time:");
+		int regNum = Helper.readInt("Enter registration Number:");
+
+		
+		registration r = new registration(id, email, status, date, time, regNum);
+		return r;
+	}
+	public static void addRegistrations(ArrayList<registration> rList, registration r) {
+		rList.add(r);
+	}
+
+	
+	
+	
+	
+	// View reg
+	public static String retrieveAllRegistrations(ArrayList<registration> rList) {
+		String output = "";
+		
+		for (int i = 0; i < rList.size(); i++) {
+			output += String.format("%=84s\n", rList.get(i).toString());
+		}
+		return output;
+	}
+	public static void viewAllRegistrations(ArrayList<registration> rList) {
+		C206_CaseStudy.setHeader("ALL REGISTRATIONS");
+		String output = String.format("%-10d %-30s %-10s %-10s %-10s %-20d\n", "TUITION ID", "EMAIL", "STATUS", "EMAIL", "DATE", "TIME", "REGNUM");
+		output += retrieveAllRegistrations(rList);
+		System.out.println(output);
+	}
+	
+	// Delete reg
+	public static void deleteRegistrations(ArrayList<registration> rList) {
+		int id = Helper.readInt("Enter tuition timetable ID: ");
+		for (int i = 0; i < rList.size(); i++) {
+			if (rList.get(i).getId()==id) {
+				rList.remove(i);
 			}
 		}
 	}

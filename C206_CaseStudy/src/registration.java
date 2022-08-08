@@ -9,8 +9,8 @@ public class registration extends timetable{
     private int regNum;
     
 
-    public registration(int id, String studentEmail, String status, String date, String time, int regNum) {
-        super(id);
+    public registration(int id, double price, String sDate, String sTime, String eDate, String eTime, String mode, String studentEmail, String status, String date, String time, int regNum) {
+        super(id, price, time, time, time, time, time);
         this.studentEmail = studentEmail;
         this.status = status;
         this.date = date;
@@ -52,3 +52,4 @@ public class registration extends timetable{
     
     
 }
+
