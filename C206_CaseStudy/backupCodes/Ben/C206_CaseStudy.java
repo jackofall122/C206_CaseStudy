@@ -16,7 +16,6 @@ public class C206_CaseStudy {
 		tuitionList.add(new tuition(1000, "English", "Language", 
 				"Elementary", 120, "None", "Mr Johnathan Tan"));
 	}
-	// AFIQ
 	// Register/Add students
 	public static Students inputStudents() {
 		String name = Helper.readString("Enter name:");
@@ -60,7 +59,7 @@ public class C206_CaseStudy {
 		}
 	}
 	// BEN
-	// 1 - Register/add tuition
+	// 1 - Add tuition (register)
 	public static tuition inputTuition() {
 	
 		int tuitionCode = Helper.readInt("Enter class code: ");
@@ -80,9 +79,24 @@ public class C206_CaseStudy {
 	}
 	
 	// 2 - View tuition
-	public static String retrieve(ArrayList<tuition> tuitionList) {
-		
+	public static String retrieveAllTuition(ArrayList<tuition> tuitionList) {
+		String output = "";
+		for(int i=0; i<tuitionList.size(); i++) {
+			output += String.format("%-180s", tuitionList.get(i).toString());
+		}
+		return output;
 	}
+	public static void viewAllTuition(ArrayList<tuition> tuitionList) {
+		C206_CaseStudy.setHeader("TUITION LIST");
+		String output=String.format("%-10d %-30s %-20s %-50s %-5s minutes %-20s $-30s",
+				"CODE", "TITLE", "SUBJECT GROUP", "DESCRIPTION", "DURATION", "PRE-REQUISITES",
+				"TEACHER INFO");
+		output+=retrieveAllTuition(tuitionList);
+		System.out.println(output);
+	}
+	
+	// Delete
+	public static void deleteTuition()
 		
 }
 	
