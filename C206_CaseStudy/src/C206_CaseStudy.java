@@ -49,7 +49,7 @@ public class C206_CaseStudy {
 					C206_CaseStudy.viewAllStudents(studentsList);
 				}
 				else if (type == 3) {
-					C206_CaseStudy.inputDelete(studentsList);
+					C206_CaseStudy.deleteStudent(studentsList);
 					System.out.println("Student deleted");
 				}
 				else {
@@ -210,14 +210,36 @@ public class C206_CaseStudy {
 	}
 	
 	// Delete students
-	public static void inputDelete(ArrayList<Students> studentsList) {
-		String email = Helper.readString("Enter email: ");
-		for (int i = 0; i < studentsList.size(); i++) {
-		if (studentsList.get(i).getEmail().equals(email)) {
-		studentsList.remove(i);
-			}
-		}
-	}
+	public static boolean inputDelete (ArrayList<Students> studentsList, String email) {
+        boolean isDeleted = false;
+
+        for(int i = 0; i < studentsList.size();i++) {
+            if(email.equals(studentsList.get(i).getEmail())) {
+
+                studentsList.remove(i);
+                isDeleted = true;
+            }
+        }
+        return isDeleted;
+
+    }
+
+    public static void deleteStudent(ArrayList<Students> studentsList) {
+        String student_email = Helper.readString("Enter email: ");
+        int check = 0;
+        for (int a = 0; a < studentsList.size(); a++) {
+            if ((studentsList.get(a).getEmail()).equalsIgnoreCase(student_email)) {
+                studentsList.remove(a);
+                System.out.println("Student Successfully Deleted!");
+                check = check + 1;
+                break;
+            }
+        }
+
+        if (check < 1) {
+            System.out.println("Student does not exist!");
+        }
+    }
 
 	
 // ================================= ANDREW (registration)===============================================

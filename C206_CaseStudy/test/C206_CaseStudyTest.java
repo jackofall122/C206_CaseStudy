@@ -86,16 +86,26 @@ public class C206_CaseStudyTest {
 	}
 	
 	@Test
-	public void testDeleteStudent() {
-		//Student list is not null, so that can add a new student - boundary
-		assertNotNull("Test if there is valid Students arraylist to add to", studentsList);
-		C206_CaseStudy.addStudent(studentsList, st1);
-	
-		//There is now a value in student list, so the student can be deleted. – normal
-		C206_CaseStudy.inputDelete(studentsList);
-		assertEquals("Test if the arraylist is 0?", 0, studentsList.size());
-		
-	}
+    public void testDeleteStudent() {
+        assertNotNull("Test if there is valid Student arraylist to delete from", studentsList);
+
+        C206_CaseStudy.addStudent(studentsList, st1);
+        C206_CaseStudy.addStudent(studentsList, st2);
+
+        // normal
+        Boolean ok = C206_CaseStudy.inputDelete(studentsList, st1.getEmail());
+        assertTrue("Test if a student is available to delete?", ok);
+        assertEquals(studentsList.get(0).getEmail(), st2.getEmail());
+
+        // error condition
+        ok = C206_CaseStudy.inputDelete(studentsList, st1.getEmail());
+        assertFalse("Test if able to delete the same student again?", ok);
+
+        // Test that the size of the student list is back to 1
+        C206_CaseStudy.inputDelete(studentsList, st1.getEmail());
+        assertEquals("Test that student arrayList size is 1?", 1, studentsList.size());
+        assertSame("Test that other student added is the first student of the list?", st2, studentsList.get(0));
+    }
 
 	// ANDREW - REGISTRATION test cases
 	@Test
