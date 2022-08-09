@@ -38,8 +38,8 @@ public class C206_CaseStudyTest {
 		
 		
 		//given an empty list, after adding 2 items, test if the size of the list is 2
-		helloWorld.AddTimetable(timetableList, tt1);
-		helloWorld.AddTimetable(timetableList, tt2);
+		helloWorld.addTimetable(timetableList, tt1);
+		helloWorld.addTimetable(timetableList, tt2);
 		assertEquals("Test to see if that timetableList size is 2", 2, timetableList.size());
 		
 	}

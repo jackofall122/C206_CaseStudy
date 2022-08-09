@@ -1,9 +1,12 @@
 
 import java.util.ArrayList;
 
+import Andrew.C206_CaseStudy;
 import Andrew.Helper;
 import Andrew.registration;
 import Ben.tuition;
+import Yang.helloWorld;
+import Yang.timetable;
 
 public class C206_CaseStudy {
 
@@ -26,6 +29,10 @@ public class C206_CaseStudy {
 		ArrayList<registration> rList = new ArrayList<registration>();
 
 		// Yang
+		ArrayList<timetable> timetableList = new ArrayList<timetable>(); 
+		timetableList.add(new timetable(1, 160, "15-8-22", "19:00", "14-11-22", "21:00", "f2f"));
+		timetableList.add(new timetable(2, 200, "17-8-22", "17:00", "16-11-22", "19:00", "f2f"));
+		
 		int option = 0;
 
 		while (option != OPTION_QUIT) {
@@ -81,15 +88,27 @@ public class C206_CaseStudy {
 				
 				if (type == 1) {
 					//Add
+					timetable tt = inputTimetable();
+					C206_CaseStudy.addTimetable(timetableList, tt);
+					System.out.println("Timetable added!\n");
 				}
 				else if (type == 2) {
 					//View
+					C206_CaseStudy.setHeader("TIMETABLE LIST");
+					C206_CaseStudy.viewAllTimetable(timetableList);
 				}
 				else if (type == 3) {
 					//Delete
+					C206_CaseStudy.setHeader("TIMETABLE LIST");
+					C206_CaseStudy.viewAllTimetable(timetableList);
+					int id = Helper.readInt("Enter ID of timetable to be deleted > ");
+					C206_CaseStudy.deleteTimetable(id, timetableList);
+					System.out.println("Timetable deleted!\n");
 				}
 				else {
 					//
+					System.out.println("Invalid option\n");
+					
 				}
 				
 			// Ben 
@@ -184,13 +203,13 @@ public class C206_CaseStudy {
 		String output = "";
 		
 		for (int i = 0; i < studentsList.size(); i++) {
-			output += String.format("%-10s %-30s %-10s %-10s %-10s %-10s %-10s", studentsList.get(i).getName(), studentsList.get(i).getGender(), studentsList.get(i).getMobile(), studentsList.get(i).getEmail(), studentsList.get(i).getDob(), studentsList.get(i).getCountry(), studentsList.get(i).getInterest());
+			output += String.format("%-84s\n", studentsList.get(i).toString());
 		}
 		return output;
 	}
 	public static void viewAllStudents(ArrayList<Students> studentsList) {
 		C206_CaseStudy.setHeader("STUDENT LIST");	
-		String output = String.format("%-10s %-30s %-10s %-10s %-10s %-10s %-10s", "NAME", "GENDER", "MOBILE", "EMAIL", "DATE OF BIRTH", "COUNTRY OF RESIDENCE", "INTEREST");
+		String output = String.format("%-20s %-10s %-10s %-20s %-20s %-20s %-20s\n", "NAME", "GENDER", "MOBILE", "EMAIL", "DATE OF BIRTH", "COUNTRY OF RESIDENCE", "INTEREST");
 		output += retrieveAllStudents(studentsList);
 		System.out.println(output);
 	}
@@ -220,8 +239,8 @@ public class C206_CaseStudy {
 			registration r = new registration(id,email,status,date,time,regNum);
 			return r;
 		}
-		public static void addRegistrations(ArrayList<registration> rList, registration r) {
-			rList.add(r);
+		public static void addRegistrations(ArrayList<registration> rList, registration r1) {
+			rList.add(r1);
 		}
 	
 		// View reg
@@ -249,7 +268,44 @@ public class C206_CaseStudy {
 				}
 			}
 		}
-	}
-//================================= Yang (timetable)===========================================================
-		
+//================================= Yang (timetable)===========================================================	
+		public static String retrieveAllTimetable(ArrayList<timetable> timetableList) {
+			String output = "";
+
+			for (int i = 0; i < timetableList.size(); i++) {
+				output += String.format("%-76s\n", timetableList.get(i).toString());
+			}
+			return output;
+
+		}
+
+		public static void viewAllTimetable(ArrayList<timetable> timetableList) {
+			String output = String.format("%-5s %-10s %-15s %-15s %-15s %-15s %-10s\n", "ID", "PRICE", "START DATE", "START TIME", "END DATE", "END TIME", "MODE");
+			output += retrieveAllTimetable(timetableList);
+			System.out.println(output);
+		}
+
+		public static timetable inputTimetable() {
+			int id = Helper.readInt("Enter timetable id > ");
+			double price = Helper.readDouble("Enter price > ");
+			String startDate = Helper.readString("Enter starting date (DD-MM-YY) > ");
+			String startTime = Helper.readString("Enter starting time (24 hour format) > ");
+			String endDate = Helper.readString("Enter ending date (DD-MM-YY) > ");
+			String endTime = Helper.readString("Enter ending time (24 hour format) > ");
+			String mode = Helper.readString("Enter mode (f2f/hbl) > ");
+
+			timetable tt = new timetable(id, price, startDate, startTime, endDate, endTime, mode);
+			return tt;
+		}
+		public static void addTimetable(ArrayList<timetable> timetableList, timetable tt) {
+			timetableList.add(tt);
+		}
+		public static void deleteTimetable(int id, ArrayList<timetable> timetableList) {
+			for (int i = 0; i < timetableList.size(); i++) {
+				if (timetableList.get(i).getId() == id) {
+					timetableList.remove(i);
+				}
+			}
+		}
+}
 //================================= Ben (tuition)==============================================================
