@@ -1,11 +1,7 @@
 
 import java.util.ArrayList;
 
-import Andrew.Helper;
-import Andrew.registration;
-import Ben.tuition;
-import Yang.helloWorld;
-import Yang.timetable;
+
 
 public class C206_CaseStudy {
 
