@@ -6,8 +6,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import Andrew.C206_CaseStudy;
-import Andrew.registration;
 
 public class C206_CaseStudyTest {
 	private Students st1;
@@ -73,8 +71,8 @@ public class C206_CaseStudyTest {
 		
 		//Test if the expected output string same as the list of Students retrieved from the C206_CaseStudy
 		allStudents= C206_CaseStudy.retrieveAllStudents(studentsList);
-		testOutput = String.format("%-20s %-10s %-10s %-20s %-20s %-20s %-20s", "Mike", "Male", "98549549","add@gmail.com", "23 July 2020", "Singapore", "English");
-		testOutput += String.format("%-20s %-10s %-10s %-20s %-20s %-20s %-20s", "Hannah", "Female", "98475737", "eki@gmail.com", "29 July 2020", "Singapore", "Science");
+		testOutput = String.format("%-10s %-30s %-10s %-10s %-10s %-10s %-10s", "Mike", "Male", "98549549","add@gmail.com", "23 July 2020", "Singapore", "English");
+		testOutput += String.format("%-10s %-30s %-10s %-10s %-10s %-10s %-10s", "Hannah", "Female", "98475737", "eki@gmail.com", "29 July 2020", "Singapore", "Science");
 
 		assertEquals("Test that ViewAllStudentslist", testOutput, allStudents);
 		
