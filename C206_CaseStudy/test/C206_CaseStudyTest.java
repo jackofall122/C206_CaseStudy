@@ -6,10 +6,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import Yang.helloWorld;
-import Yang.timetable;
-
-
 public class C206_CaseStudyTest {
 	private Students st1;
 	private Students st2;
