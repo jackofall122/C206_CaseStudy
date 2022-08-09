@@ -75,7 +75,21 @@ public class C206_CaseStudy {
 		return newTuition;
 	}
 	public static void addTuition(ArrayList<tuition> tuitionList, tuition newTuition) {
-		tuitionList.add(newTuition);
+		String msg = "";
+		boolean isAdded = true;
+		for(int i=0; i<tuitionList.size(); i++) {
+			if(tuitionList.get(i).getTuitionCode() == newTuition.getTuitionCode()) {
+				isAdded=false;
+				break;
+			}
+		}
+		if(isAdded=true) {
+			tuitionList.add(newTuition);
+			System.out.println("Class "+newTuition.getTuitionCode()+" has been created.");
+		}
+		else {
+			System.out.println("The tuition code entered is already in use, please try again");
+		}
 	}
 	
 	// 2 - View tuition
@@ -95,9 +109,21 @@ public class C206_CaseStudy {
 		System.out.println(output);
 	}
 	
-	// Delete
-	public static void deleteTuition()
+	// 3 - Delete
+	public static void deleteTuition(ArrayList<tuition> tuitionList) {
+		int tuitionCode = Helper.readInt("Enter tuition code of class to delete: ");
+		for(int i=0; i<tuitionList.size(); i++) {
+			if(tuitionList.get(i).getTuitionCode() == tuitionCode) {
+				tuitionList.remove(i);
+				break;
+			}
+		}
+		System.out.println("Class "+tuitionCode+ " has been deleted");
+	}
+	
+	// 4 - Edit
+	public static void editTuition(ArrayList<tuition> tuitionList) {
+		
+	}
 		
 }
-	
-	

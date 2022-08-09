@@ -34,6 +34,7 @@ public class C206_CaseStudy {
 			C206_CaseStudy.menu();
 			option = Helper.readInt("Enter an option > ");
 
+			// Afiq
 			if (option == OPTION_STUDENTS) {
 				StudentList();
 				int type = Helper.readInt("Enter an option > ");
@@ -53,6 +54,7 @@ public class C206_CaseStudy {
 				else {
 					System.out.println("Invalid option");
 				}
+			// Andrew
 			}else if (option == OPTION_REGISTRATIONS) {
 				RegistrationList();
 				int type = Helper.readInt("Enter an option > ");
@@ -73,6 +75,7 @@ public class C206_CaseStudy {
 					//
 					System.out.println("Invalid option");
 				}
+			// Yang
 			}else if (option == OPTION_TIMETABLE) {
 				TimeTableList();
 				int type = Helper.readInt("Enter an option > ");
@@ -89,6 +92,8 @@ public class C206_CaseStudy {
 				else {
 					//
 				}
+				
+			// Ben 
 			}else if (option == OPTION_TUITION) {
 				TuitionList();
 				int type = Helper.readInt("Enter an option > ");
@@ -157,6 +162,7 @@ public class C206_CaseStudy {
 		System.out.println(header);
 		Helper.line(80, "-");
 	}
+// ================================= AFIQ (students)===============================================
 	// Register/Add students
 	public static Students inputStudents() {
 		String name = Helper.readString("Enter name:");
@@ -201,47 +207,50 @@ public class C206_CaseStudy {
 	}
 
 	
-public static registration createRegistration() {
-		
-		int id = Helper.readInt("Enter tuition timetable ID:");
-		String email = Helper.readString("Enter email:");
-		String status = "Pending";
-		String date = Helper.readString("Enter date:");
-		String time = Helper.readString("Enter time:");
-		int regNum = Helper.readInt("Enter registration Number:");
-
-		
-		registration r = new registration(id,email,status,date,time,regNum);
-		return r;
-	}
-	public static void addRegistrations(ArrayList<registration> rList, registration r) {
-		rList.add(r);
-	}
-
-	// View reg
-	public static String retrieveAllRegistrations(ArrayList<registration> rList) {
-		String output = "";
-		
-		for (int i = 0; i < rList.size(); i++) {
-			output += String.format("%-10d %-30s %-10s %-10s %-10s %-20d\n", rList.get(i).getId(),rList.get(i).getStudentEmail(),rList.get(i).getStatus(),rList.get(i).getDate(),rList.get(i).getTime(),rList.get(i).getRegNum());
-		}
-		return output;
-	}
-	public static void viewAllRegistrations(ArrayList<registration> rList) {
-		C206_CaseStudy.setHeader("ALL REGISTRATIONS");
-		String output = String.format("%-10s %-30s %-10s %-10s %-10s %-20s\n", "TUITION ID", "EMAIL", "STATUS", "DATE", "TIME", "REGNUM");
-		output += retrieveAllRegistrations(rList);
-		System.out.println(output);
-	}
+// ================================= ANDREW (registration)===============================================
+	public static registration createRegistration() {
+			
+			int id = Helper.readInt("Enter tuition timetable ID:");
+			String email = Helper.readString("Enter email:");
+			String status = "Pending";
+			String date = Helper.readString("Enter date:");
+			String time = Helper.readString("Enter time:");
+			int regNum = Helper.readInt("Enter registration Number:");
 	
-	// Delete reg
-	public static void deleteRegistrations(ArrayList<registration> rList) {
-		int id = Helper.readInt("Enter tuition timetable ID: ");
-		for (int i = 0; i < rList.size(); i++) {
-			if (rList.get(i).getId()==id) {
-				rList.remove(i);
+			
+			registration r = new registration(id,email,status,date,time,regNum);
+			return r;
+		}
+		public static void addRegistrations(ArrayList<registration> rList, registration r) {
+			rList.add(r);
+		}
+	
+		// View reg
+		public static String retrieveAllRegistrations(ArrayList<registration> rList) {
+			String output = "";
+			
+			for (int i = 0; i < rList.size(); i++) {
+				output += String.format("%-10d %-30s %-10s %-10s %-10s %-20d\n", rList.get(i).getId(),rList.get(i).getStudentEmail(),rList.get(i).getStatus(),rList.get(i).getDate(),rList.get(i).getTime(),rList.get(i).getRegNum());
+			}
+			return output;
+		}
+		public static void viewAllRegistrations(ArrayList<registration> rList) {
+			C206_CaseStudy.setHeader("ALL REGISTRATIONS");
+			String output = String.format("%-10s %-30s %-10s %-10s %-10s %-20s\n", "TUITION ID", "EMAIL", "STATUS", "DATE", "TIME", "REGNUM");
+			output += retrieveAllRegistrations(rList);
+			System.out.println(output);
+		}
+		
+		// Delete reg
+		public static void deleteRegistrations(ArrayList<registration> rList) {
+			int id = Helper.readInt("Enter tuition timetable ID: ");
+			for (int i = 0; i < rList.size(); i++) {
+				if (rList.get(i).getId()==id) {
+					rList.remove(i);
+				}
 			}
 		}
 	}
-}
-	
+//================================= Yang (timetable)===========================================================
+		
+//================================= Ben (tuition)==============================================================

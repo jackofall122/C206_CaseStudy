@@ -16,6 +16,7 @@ public class C206_CaseStudyTest {
 		super();
 	}
 
+	// AFIQ - STUDENTS test cases
 	@Before
 	public void setUp() throws Exception {
 		// prepare test data
@@ -78,6 +79,14 @@ public class C206_CaseStudyTest {
 		
 	}
 
+	// ANDREW - REGISTRATION test cases
+	
+	
+	
+	// YANG - TIMETABLE test cases
+	
+	
+	
 	@After
 	public void tearDown() throws Exception {
 		st1 = null;
