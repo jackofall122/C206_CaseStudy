@@ -1,7 +1,6 @@
 
 import java.util.ArrayList;
 
-import Andrew.C206_CaseStudy;
 import Andrew.Helper;
 import Andrew.registration;
 import Ben.tuition;
@@ -203,13 +202,13 @@ public class C206_CaseStudy {
 		String output = "";
 		
 		for (int i = 0; i < studentsList.size(); i++) {
-			output += String.format("%-84s\n", studentsList.get(i).toString());
+			output += String.format("%-10s %-30s %-10s %-10s %-10s %-10s %-10s", studentsList.get(i).getName(),studentsList.get(i).getGender(),studentsList.get(i).getMobile(),studentsList.get(i).getEmail(),studentsList.get(i).getDob(),studentsList.get(i).getCountry(),studentsList.get(i).getInterest());
 		}
 		return output;
 	}
 	public static void viewAllStudents(ArrayList<Students> studentsList) {
 		C206_CaseStudy.setHeader("STUDENT LIST");	
-		String output = String.format("%-20s %-10s %-10s %-20s %-20s %-20s %-20s\n", "NAME", "GENDER", "MOBILE", "EMAIL", "DATE OF BIRTH", "COUNTRY OF RESIDENCE", "INTEREST");
+		String output = String.format("%-10s %-30s %-10s %-10s %-10s %-10s %-10s", "NAME", "GENDER", "MOBILE", "EMAIL", "DATE OF BIRTH", "COUNTRY OF RESIDENCE", "INTEREST");
 		output += retrieveAllStudents(studentsList);
 		System.out.println(output);
 	}
