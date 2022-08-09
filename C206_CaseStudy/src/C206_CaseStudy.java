@@ -198,7 +198,8 @@ public class C206_CaseStudy {
 		String output = "";
 		
 		for (int i = 0; i < studentsList.size(); i++) {
-			output += String.format("%-10s %-30s %-10s %-10s %-10s %-10s %-10s", studentsList.get(i).getName(),studentsList.get(i).getGender(),studentsList.get(i).getMobile(),studentsList.get(i).getEmail(),studentsList.get(i).getDob(),studentsList.get(i).getCountry(),studentsList.get(i).getInterest());
+			output += String.format("%-10s %-30s %-10s %-10s %-10s %-10s %-10s", 
+					studentsList.get(i).getName(),studentsList.get(i).getGender(),studentsList.get(i).getMobile(),studentsList.get(i).getEmail(),studentsList.get(i).getDob(),studentsList.get(i).getCountry(),studentsList.get(i).getInterest());
 		}
 		return output;
 	}
