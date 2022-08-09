@@ -20,6 +20,7 @@ public class C206_CaseStudyTest {
 	private ArrayList<registration> rList;
 	private ArrayList<Students> studentsList;
 	private ArrayList<timetable> timetableList;
+	private ArrayList<tuition> tuitionList;
 	
 	public C206_CaseStudyTest() {
 		super();
@@ -45,7 +46,10 @@ public class C206_CaseStudyTest {
 		
 		timetableList = new ArrayList<timetable>();
 		
-		t1 = new tuition(1, "Math", "Math", )
+		t1 = new tuition(1, "Math", "Math", "a", 100, "a","a");
+		t2 = new tuition(2, "Math", "Math", "a", 100, "a","a");
+		
+		tuitionList = new ArrayList<tuition>();
 	}
 	
 	@Test
@@ -228,7 +232,52 @@ public class C206_CaseStudyTest {
 		assertEquals("test that timetable list is now 1", 1, timetableList.size());
 		assertSame("check to see if the item is same", tt2, timetableList.get(0));
 	}
-	
+	// Ben
+		@Test
+		public void testAddTuition() {
+			// test if there is an empty tuitionList, not null
+			assertNotNull("Test if tuition list is empty and not null", tuitionList);
+			
+			// test that after adding one tuition, tuitionList is size 1
+			C206_CaseStudy.addTuition(tuitionList, t1);
+			assertEquals("Check that tuition list is size 1", 1, tuitionList.size());
+			assertSame("Test that tuition has been added", t1, tuitionList.get(0));
+			
+			// test that after adding another tuition, tuitionList is size 2
+			C206_CaseStudy.addTuition(tuitionList, t2);
+			assertEquals("Check that tuition list is size 2", 2, tuitionList.size());
+			assertSame("Test that tuition has been added", t2, tuitionList.get(1));
+		}
+		
+		@Test
+		public void testRetrieveAllTuition() {
+			// test if there is an empty arrayList, not null
+			assertNotNull("Test if tuition list is empty and not null", tuitionList);
+			
+			// test that given an empty arrayList, the output of retrieval is empty
+			String allTuition = C206_CaseStudy.retrieveAllTuition(tuitionList);
+			String output = "";
+			assertEquals("Test that the retrieve method prints empty", allTuition, output);
+		}
+		
+		@Test
+		public void testDeleteTuition() {
+			// test if there is an empty arrayList, not null
+			assertNotNull("Test if tuition list is empty and not null", tuitionList);
+			
+			// Test that if the list has 0 items, if 1 item is deleted from the tuitionList there should be none left
+			C206_CaseStudy.addTuition(tuitionList, t1);
+			assertEquals("Check if size is one before deleting object", 1, tuitionList.size());
+			C206_CaseStudy.deleteTuition(tuitionList, t1.getTuitionCode());
+			assertTrue("Check to see if tuitionList list is empty upon deletion", timetableList.isEmpty());
+			
+			// Test that the list has 2 items, if 1 item is deleted there should be 1 left
+			C206_CaseStudy.addTuition(tuitionList, t1);
+			C206_CaseStudy.addTuition(tuitionList, t2);
+			assertEquals("Check if size is 2 before deleting object", 2, tuitionList.size());
+			C206_CaseStudy.deleteTuition(tuitionList, t1.getTuitionCode());
+			assertEquals("Check to see if tuitionList is empty upon deletion", 1, tuitionList.size());
+		}
 	
 	@After
 	public void tearDown() throws Exception {

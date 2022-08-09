@@ -122,7 +122,8 @@ public class C206_CaseStudy {
 					else if (type == 3) {
 						//Delete
 						C206_CaseStudy.setHeader("DELETE TUITION");
-						C206_CaseStudy.deleteTuition(tuitionList);
+						int tuitionCode = Helper.readInt("Enter tuition code: ");
+						C206_CaseStudy.deleteTuition(tuitionList, tuitionCode);
 					}
 					else {
 						//
@@ -388,8 +389,7 @@ public class C206_CaseStudy {
 	}
 	
 	// 3 - Delete
-	public static void deleteTuition(ArrayList<tuition> tuitionList) {
-		int tuitionCode = Helper.readInt("Enter tuition code of class to delete: ");
+	public static void deleteTuition(ArrayList<tuition> tuitionList, int tuitionCode) {
 		for(int i=0; i<tuitionList.size(); i++) {
 			if(tuitionList.get(i).getTuitionCode() == tuitionCode) {
 				tuitionList.remove(i);
