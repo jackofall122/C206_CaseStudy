@@ -200,9 +200,6 @@ public class C206_CaseStudy {
 		}
 	}
 
-	public static Boolean inputDelete(ArrayList<Students> studentsList, String string) {
-		return null;
-	}
 	
 public static registration createRegistration() {
 		

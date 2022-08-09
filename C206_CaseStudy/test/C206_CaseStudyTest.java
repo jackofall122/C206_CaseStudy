@@ -59,8 +59,8 @@ public class C206_CaseStudyTest {
 		
 		//Test if the expected output string same as the list of Students retrieved from the C206_CaseStudy
 		allStudents= C206_CaseStudy.retrieveAllStudents(studentsList);
-		testOutput = String.format("%-20s %-10s %-10s %-20s %-20s %-20s %-20s\n", "Mike", "Male", "98549549","add@gmail.com", "23 July 2020", "Singapore", "English");
-		testOutput += String.format("%-20s %-10s %-10s %-20s %-20s %-20s %-20s\n", "Hannah", "Female", "98475737", "eki@gmail.com", "29 July 2020", "Singapore", "Science");
+		testOutput = String.format("%-20s %-10s %-10s %-20s %-20s %-20s %-20s", "Mike", "Male", "98549549","add@gmail.com", "23 July 2020", "Singapore", "English");
+		testOutput += String.format("%-20s %-10s %-10s %-20s %-20s %-20s %-20s", "Hannah", "Female", "98475737", "eki@gmail.com", "29 July 2020", "Singapore", "Science");
 
 		assertEquals("Test that ViewAllStudentslist", testOutput, allStudents);
 		
@@ -73,12 +73,8 @@ public class C206_CaseStudyTest {
 		C206_CaseStudy.addStudent(studentsList, st1);
 	
 		//There is now a value in student list, so the student can be deleted. – normal
-		Boolean isDeleted = C206_CaseStudy.inputDelete(studentsList, "add@gmail.com");
-		assertTrue("Test if student Mike is deleted", isDeleted);
-
-		//Test if a student that is not in the list can be deleted – error 
-		isDeleted = C206_CaseStudy.inputDelete(studentsList, "popo@gmail.com");
-		assertFalse("Test if non-existing student, is deleted - false?", isDeleted);
+		C206_CaseStudy.inputDelete(studentsList);
+		assertEquals("Test if the arraylist is 0?", 0, studentsList.size());
 		
 	}
 
