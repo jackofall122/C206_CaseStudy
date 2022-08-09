@@ -1,5 +1,6 @@
 
 
+
 public class tuition {
 
 	private String tuitionTitle;

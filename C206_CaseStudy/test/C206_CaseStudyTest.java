@@ -14,6 +14,8 @@ public class C206_CaseStudyTest {
 	private registration r3;
 	private timetable tt1;
 	private timetable tt2;
+	private tuition t1;
+	private tuition t2;
 	
 	private ArrayList<registration> rList;
 	private ArrayList<Students> studentsList;
@@ -42,6 +44,8 @@ public class C206_CaseStudyTest {
 		tt2 = new timetable(2, 200, "17-8-22", "17:00", "16-11-22", "19:00", "f2f");
 		
 		timetableList = new ArrayList<timetable>();
+		
+		t1 = new tuition(1, "Math", "Math", )
 	}
 	
 	@Test

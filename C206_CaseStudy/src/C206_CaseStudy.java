@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 
 
+
 public class C206_CaseStudy {
 
 	private static final int OPTION_STUDENTS = 1;
@@ -17,9 +18,6 @@ public class C206_CaseStudy {
 		studentsList.add(new Students("Afiq", "Male", "9849593", "ert@gmail.com", "19 July 2020", "Singapore", "Math"));
 		// Ben
 		ArrayList<tuition> tuitionList = new ArrayList<tuition>();
-		tuitionList.add(new tuition(1000, "English", "Language", "Advanced",120, 
-				"Elementary English", "Mr Lee"));
-		
 		// Andrew
 		ArrayList<registration> rList = new ArrayList<registration>();
 
@@ -106,23 +104,31 @@ public class C206_CaseStudy {
 					
 				}
 				
-			// Ben 
-			}else if (option == OPTION_TUITION) {
-				TuitionList();
-				int type = Helper.readInt("Enter an option > ");
-				
-				if (type == 1) {
-					//Add
-				}
-				else if (type == 2) {
-					//View
-				}
-				else if (type == 3) {
-					//Delete
-				}
-				else {
-					//
-				}
+				// Ben 
+				}else if (option == OPTION_TUITION) {
+					TuitionList();
+					int type = Helper.readInt("Enter an option > ");
+					
+					if (type == 1) {
+						//Add
+						C206_CaseStudy.setHeader("ADD TUITION");
+						tuition t = inputTuition();
+						C206_CaseStudy.addTuition(tuitionList,t);
+					}
+					else if (type == 2) {
+						//View
+						C206_CaseStudy.viewAllTuition(tuitionList);
+					}
+					else if (type == 3) {
+						//Delete
+						C206_CaseStudy.setHeader("DELETE TUITION");
+						C206_CaseStudy.deleteTuition(tuitionList);
+					}
+					else {
+						//
+						System.out.println("Quit");
+					}
+					
 			}else if (option == OPTION_QUIT) {
 				System.out.println("Bye!");
 			} else {
@@ -344,5 +350,52 @@ public class C206_CaseStudy {
 				}
 			}
 		}
-}
+
 //================================= Ben (tuition)==============================================================
+	public static tuition inputTuition() {
+		
+		int tuitionCode = Helper.readInt("Enter class code: ");
+		String tuitionTitle = Helper.readString("Enter class title: ");
+		String subGrpName = Helper.readString("Enter the subject group name: ");
+		String tuitionDescription = Helper.readString("Enter the tuition description: ");
+		int tuitionDuration = Helper.readInt("Enter the class duration: ");
+		String tuitionPreReq = Helper.readString("Enter the class pre-requisite: ");
+		String teacherInfo = Helper.readString("Enter the teacher's information");
+		
+		tuition newTuition = new tuition(tuitionCode, tuitionTitle, subGrpName, 
+				tuitionDescription, tuitionDuration, tuitionPreReq, teacherInfo);
+		return newTuition;
+	}
+	public static void addTuition(ArrayList<tuition> tuitionList, tuition newTuition) {
+		tuitionList.add(newTuition);
+	}
+	
+	// 2 - View tuition
+	public static String retrieveAllTuition(ArrayList<tuition> tuitionList) {
+		String output = "";
+		for(int i=0; i<tuitionList.size(); i++) {
+			output += String.format("%-180s", tuitionList.get(i).toString());
+		}
+		return output;
+	}
+	public static void viewAllTuition(ArrayList<tuition> tuitionList) {
+		C206_CaseStudy.setHeader("TUITION LIST");
+		String output=String.format("%-10s %-30s %-20s %-50s %-20s %-20s %-30s\n",
+				"CODE", "TITLE", "SUBJECT GROUP", "DESCRIPTION", "DURATION (Minutes)", "PRE-REQUISITES",
+				"TEACHER INFO");
+		output += retrieveAllTuition(tuitionList);
+		System.out.println(output);
+	}
+	
+	// 3 - Delete
+	public static void deleteTuition(ArrayList<tuition> tuitionList) {
+		int tuitionCode = Helper.readInt("Enter tuition code of class to delete: ");
+		for(int i=0; i<tuitionList.size(); i++) {
+			if(tuitionList.get(i).getTuitionCode() == tuitionCode) {
+				tuitionList.remove(i);
+				break;
+			}
+		}
+		System.out.println("Class "+tuitionCode+ " has been deleted");
+	}
+}
