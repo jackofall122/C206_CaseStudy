@@ -41,38 +41,38 @@ public class C206_CaseStudyTest {
 		
 		//Given an empty list, after adding 1 item, the size of the list is 1
 		C206_CaseStudy.addRegistrations(rList, r1);		
-		assertEquals("Test if that Camcorder arraylist size is 1?", 1, rList.size());
+		assertEquals("Test if that Reg arraylist size is 1?", 1, rList.size());
 		
 		//The item just added is as same as the first item of the list
-		assertSame("Test that Camcorder is added same as 1st item of the list?", r1, rList.get(0));
+		assertSame("Test that Reg is added same as 1st item of the list?", r1, rList.get(0));
 		
 		//Add another item. test The size of the list is 2?
 		C206_CaseStudy.addRegistrations(rList, r2);
-		assertEquals("Test that Chromebook arraylist size is 2?", 2, rList.size());
-		assertSame("Test that Chromebook is added.", r2, rList.get(1));
+		assertEquals("Test that Reg arraylist size is 2?", 2, rList.size());
+		assertSame("Test that Reg is added.", r2, rList.get(1));
 	}
 	
 	@Test
-	public void testRetrieveAllCamcorder() {
+	public void testRetrieveAllReg() {
 		// Test if Item list is not null but empty, so that can add a new item
 		assertNotNull("Test if there is valid Camcorder arraylist to add to", rList);
 		
-		//test if the list of camcorders retrieved from the SourceCentre is empty
+		//test if the list of regs retrieved from the SourceCentre is empty
 		String allReg= C206_CaseStudy.retrieveAllRegistrations(rList);
 		String testOutput = "";
-		assertEquals("Check that ViewAllCamcorderlist", testOutput, allReg);
+		assertEquals("Check that ViewAllReglist", testOutput, allReg);
 		//Given an empty list, after adding 2 items, test if the size of the list is 2
 		C206_CaseStudy.addRegistrations(rList, r1);
 		C206_CaseStudy.addRegistrations(rList, r2);
-		assertEquals("Test if that Camcorder arraylist size is 2?", 2, rList.size());
+		assertEquals("Test if that Reg arraylist size is 2?", 2, rList.size());
 		
-		//test if the expected output string same as the list of camcorders retrieved from the SourceCentre
+		//test if the expected output string same as the list of regs retrieved from the SourceCentre
 		allReg= C206_CaseStudy.retrieveAllRegistrations(rList);
 
 		testOutput = String.format("%-10d %-30s %-10s %-10s %-10s %-20d\n",1, "email.com", "Pending", "20-4-2022", "8.45pm", 001);
 		testOutput += String.format("%-10d %-30s %-10s %-10s %-10s %-20d\n",2, "email.com", "Pending", "20-5-2022", "4.30pm", 002);
 	
-		assertEquals("Check that ViewAllCamcorderlist", testOutput, allReg);
+		assertEquals("Check that ViewAllReglist", testOutput, allReg);
 		
 	}
 	
