@@ -154,10 +154,14 @@ public class C206_CaseStudyTest {
 	public void testDelReg() {
 		//fail("Not yet implemented");
 		assertNotNull("Test if there is valid Reg arraylist to add to", rList);
+		C206_CaseStudy.addRegistrations(rList, r1);		
+		assertEquals("Test if that Reg arraylist size is 1?", 1, rList.size());
 		
 		//Given an empty list, after adding 1 item, the size of the list is 1
-		C206_CaseStudy.deleteRegistrations(rList);		
+		C206_CaseStudy.inputDeleteReg(rList,r1);		
 		assertEquals("Test if that arraylist size is 0?", 0, rList.size());
+		
+		
 	}
 	
 	

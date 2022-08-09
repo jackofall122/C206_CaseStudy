@@ -265,23 +265,42 @@ public class C206_CaseStudy {
 			String output = "";
 			
 			for (int i = 0; i < rList.size(); i++) {
-				output += String.format("%-10d %-30s %-10s %-10s %-10s %-20d\n", rList.get(i).getId(),rList.get(i).getStudentEmail(),rList.get(i).getStatus(),rList.get(i).getDate(),rList.get(i).getTime(),rList.get(i).getRegNum());
+				output += String.format("%-10d %-30s %-10s %-10s %-10s %-20d\n", 
+						rList.get(i).getId(),rList.get(i).getStudentEmail(),rList.get(i).getStatus(),
+						rList.get(i).getDate(),rList.get(i).getTime(),rList.get(i).getRegNum());
 			}
 			return output;
 		}
 		public static void viewAllRegistrations(ArrayList<registration> rList) {
 			C206_CaseStudy.setHeader("ALL REGISTRATIONS");
-			String output = String.format("%-10s %-30s %-10s %-10s %-10s %-20s\n", "TUITION ID", "EMAIL", "STATUS", "DATE", "TIME", "REGNUM");
+			String output = String.format("%-10s %-30s %-10s %-10s %-10s %-20s\n", 
+					"TUITION ID", "EMAIL", "STATUS", "DATE", "TIME", "REGNUM");
 			output += retrieveAllRegistrations(rList);
 			System.out.println(output);
 		}
 		
 		// Delete reg
+		public static boolean inputDeleteReg (ArrayList<registration> rList, registration r1) {
+	        boolean isDeleted = false;
+
+	        for(int i = 0; i < rList.size();i++) {
+	            if(r1 == rList.get(i)) {
+
+	                rList.remove(i);
+	                isDeleted = true;
+	            }
+	        }
+	        return isDeleted;
+
+	    }
+		
+		
 		public static void deleteRegistrations(ArrayList<registration> rList) {
 			int id = Helper.readInt("Enter tuition timetable ID: ");
 			for (int i = 0; i < rList.size(); i++) {
 				if (rList.get(i).getId()==id) {
 					rList.remove(i);
+					break;
 				}
 			}
 		}
